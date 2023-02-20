@@ -1,0 +1,40 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+section{
+    padding:60px 0;
+}
+.contain{
+    outline:solid 1px white;
+    outline-offset: -29px;
+    margin:0 auto;
+    border-width: 4px !important;
+    border-radius: 10px;
+}
+.font-timer{
+    font-size: 40px;
+    font-weight: lighter !important;
+     
+}
+.dummy-width{
+    width: 67%;
+    border-radius: 10px; 
+}
+.beforeTime::after{
+    content: ":";
+    position: absolute;
+    right: -43px;
+    top: -3px;
+    color: #dc3545;
+}
+input{
+    display: inline-block;
+    width:30px;
+    height: 30px;
+    accent-color: #dc3545;
+}
+label{
+ top:10px;
+ left:32px;
+}

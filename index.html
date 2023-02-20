@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link  rel="stylesheet" href="css/bootstrap.min.css">  
+ <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<section class="bg-dark">
+    <div class="contain border border-white w-50  pt-5 pb-5">
+        <div class="">
+            <div class="d-flex justify-content-center">
+              <p class="ms-4 me-4 fs-2 fw-bold text-white m-0">DATE</p>
+              <p class="ms-4 me-4 fs-2 fw-bold text-white m-0">MONTH</p>
+              <p class="ms-4 me-4 fs-2 fw-bold text-white m-0">YEAR</p>
+            </div>
+            <div class="d-flex  m-auto dummy-width border border-white">
+                <p id="date" class="ms-5 me-5 mb-0 text-danger ps-2 pe-2 font-timer fw-bold"></p>
+                <p id="month" class="ms-5 me-5 mb-0 text-danger ps-2 pe-2 font-timer fw-bold"></p>
+                <p id="year" class="ms-5 me-5 mb-0 text-danger ps-2 pe-2 font-timer fw-bold"></p>
+            </div>
+            </div>
+            <div>
+            <div class="d-flex justify-content-center">
+              <p class=" m-0 p-2 fs-2 fw-bold text-white">HOURS</p>
+              <p class=" m-0 p-2 fs-2 fw-bold text-white">MINUTE</p>
+              <p class=" m-0 p-2 fs-2 fw-bold text-white">SECOND</p>
+            </div>
+            <div class="">
+            <div class="d-flex  m-auto  dummy-width border border-white">
+                <p id="hours" class="ms-5 me-5 mb-0 text-danger ps-2 pe-2 font-timer fw-bold position-relative beforeTime"></p>
+                <p id="minute" class="ms-5 me-5 mb-0 text-danger ps-2 pe-2 font-timer fw-bold position-relative beforeTime"></p>
+                <p id="second" class="ms-5 me-5 mb-0 text-danger ps-2 pe-2 font-timer fw-bold"></p>
+            </div>
+            </div>
+            <div class="days d-flex justify-content-center">
+               <div class="position-relative text-white m-4">
+                 <input type="radio" id="dayInput0" name="date">
+                 <label class="position-absolute">SUN</label>
+               </div>
+               <div class="position-relative text-white m-4">
+                 <input type="radio" id="dayInput1" name="date">
+                 <label class="position-absolute">MON</label>
+               </div>
+               <div class="position-relative text-white m-4">
+                 <input type="radio" id="dayInput2" name="date">
+                 <label class="position-absolute">TUE</label>
+               </div>
+               <div class="position-relative text-white m-4">
+                 <input type="radio" id="dayInput3" name="date">
+                 <label class="position-absolute">WED</label>
+               </div>
+               <div class="position-relative text-white m-4">
+                 <input type="radio" id="dayInput4" name="date">
+                 <label class="position-absolute">THU</label>
+               </div>
+               <div class="position-relative text-white m-4">
+                 <input type="radio" id="dayInput5" name="date">
+                 <label class="position-absolute">FRI</label>
+               </div>
+               <div class="position-relative text-white m-4">
+                 <input type="radio" id="dayInput6" name="date">
+                 <label class="position-absolute">SAT</label>
+               </div>
+            </div>
+            </div>        
+            <div class="d-flex justify-content-center">
+                <div class="position-relative me-2">
+                    <input type="radio" id="am" name="time"><label class="text-white">AM</label>
+                </div>
+                <div class="position-relative">
+                    <input type="radio" id="pm" name="time"><label class="text-white">PM</label>
+                </div> 
+            </div>
+    </div>
+</section>
+<script> 
+var date=document.getElementById("date");
+var month=document.getElementById("month");
+var year=document.getElementById("year");
+var hours=document.getElementById("hours");
+var minute=document.getElementById("minute");
+var second=document.getElementById("second");
+var am=document.getElementById("am");
+var pm=document.getElementById("pm");
+     var update = () => {
+         const todayDate= new Date();
+        let dat=todayDate.getDate();
+          if(dat<10){
+            date.innerText="0"+dat;
+          }
+         else{
+          date.innerText=dat;
+         }
+          let mon=1+todayDate.getMonth();
+          if(mon<10){
+            month.innerText="0"+mon;
+          }
+         else{
+          month.innerText=mon;
+         }
+         year.innerText=todayDate.getFullYear()%100;
+                   
+          let hrs=todayDate.getHours();
+          if(hrs<10){
+            hours.innerText="0"+hrs;
+          }
+         else{
+          hours.innerText=hrs;
+         }
+          let min=todayDate.getMinutes();
+          if(min<10){
+            minute.innerText="0"+min;
+          }
+         else{
+          minute.innerText=min;
+         }
+          let sec=todayDate.getSeconds();
+          if(sec<10){
+            second.innerText="0"+sec;
+          }
+         else{
+          second.innerText=sec;
+         }
+         let findDay=todayDate.getDay();
+          switch(findDay){
+             case 0:
+                      dayInput0.checked=true;
+                      break;
+             case 1:
+                      dayInput1.checked=true;
+                      break;
+             case 2:
+                      dayInput2.checked=true;
+                      break;
+             case 3:
+                      dayInput3.checked=true;
+                      break;
+             case 4:
+                      dayInput4.checked=true;
+                      break;
+             case 5:
+                      dayInput5.checked=true;
+                      break;
+             default:
+                      dayInput6.checked=true;
+           
+          }              
+          if(todayDate.getHours()>=12){
+              pm.checked=true;
+          }
+          else{
+            am.checked=true;
+          }
+      }
+    
+var todayDate=update();   
+    setInterval(update,1000);
+
+ </script>
+ </body>
+</html>
